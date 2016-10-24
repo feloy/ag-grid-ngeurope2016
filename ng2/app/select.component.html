@@ -1,5 +1,5 @@
-<div>
-	Vertical: 
+<div style="margin: 16px;">
+	<div>Vertical:</div> 
   <select #vertical>
     <option value=""></option>
     <option *ngFor="let col of columns" value="{{col}}">{{col}}</option>
@@ -7,8 +7,8 @@
   <button type="button" (click)="addSelectedVertical(vertical.value)">+</button>
   <span *ngFor="let sel of selectedVertical" class="selectedItem">{{sel}} <button type="button" (click)="deleteVertical(sel)">-</button></span>
 </div>
-<div>
-	Horizontal: 
+<div style="margin: 16px;">
+	<div>Horizontal:</div> 
   <select #horizontal>
     <option value=""></option>
     <option *ngFor="let col of columns" value="{{col}}">{{col}}</option>
