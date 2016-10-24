@@ -9,28 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.selVertical = [];
-        this.selHorizontal = [];
+var DetailsComponent = (function () {
+    function DetailsComponent() {
     }
-    AppComponent.prototype.setSelected = function (ev) {
-        this.pivot.setVertical(ev.vertical);
-        this.pivot.setHorizontal(ev.horizontal);
-        this.pivot.setAggFunc(ev.aggFunc);
-    };
-    __decorate([
-        core_1.ViewChild('pivot'), 
-        __metadata('design:type', Object)
-    ], AppComponent.prototype, "pivot", void 0);
-    AppComponent = __decorate([
+    DetailsComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html'
+            selector: 'my-details',
+            templateUrl: 'app/details.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], DetailsComponent);
+    return DetailsComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.DetailsComponent = DetailsComponent;
+//# sourceMappingURL=details.component.js.map
