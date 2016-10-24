@@ -15,11 +15,13 @@ var AppComponent = (function () {
         this.selHorizontal = [];
     }
     AppComponent.prototype.setSelected = function (ev) {
-        /*        if (ev) {
-                    this.selVertical = ev.vertical.splice(0);
-                    this.selHorizontal = ev.horizontal.splice(0);
-                }*/
+        this.pivot.setVertical(ev.vertical);
+        this.pivot.setHorizontal(ev.horizontal);
     };
+    __decorate([
+        core_1.ViewChild('pivot'), 
+        __metadata('design:type', Object)
+    ], AppComponent.prototype, "pivot", void 0);
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',

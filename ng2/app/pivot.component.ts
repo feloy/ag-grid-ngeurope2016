@@ -13,19 +13,17 @@ import { ElevationService } from './elevation.service';
     templateUrl: 'app/pivot.component.html'
 })
 export class PivotComponent {
-    _vertical: string[];
-    @Input() set vertical(v) {
-        this._vertical = v;
+    vertical: string[];
+    setVertical(v) {
+        this.vertical = v;
         this.createColumnDefs();
     }
-    get vertical() { return this._vertical; }
 
-    _horizontal: string[];
-    @Input() set horizontal(h) {
-        this._horizontal = h;
+    horizontal: string[];
+    setHorizontal(h) {
+        this.horizontal = h;
         this.createColumnDefs();
     }
-    get horizontal() { return this._horizontal; }
 
     private gridOptions: GridOptions;
     private data;
@@ -50,8 +48,6 @@ export class PivotComponent {
     }
 
     private createColumnDefs() {
-        console.log('vert: ' + this.vertical);
-        console.log('Horz: ' + this.horizontal);
         let defs = [
             { headerName: "IncidntNum", field: "IncidntNum" },
             { headerName: "Category", field: "Category" },
