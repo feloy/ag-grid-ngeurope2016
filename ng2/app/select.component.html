@@ -9,10 +9,12 @@
 </div>
 <div style="margin: 16px;">
 	<div>Horizontal:</div> 
-  <select #horizontal>
+  <select (change)="changeHoriz($event.target.value)" #horizontal>
     <option value=""></option>
     <option *ngFor="let col of columns" value="{{col}}">{{col}}</option>
   </select>
-  <button type="button" (click)="addSelectedHorizontal(horizontal.value)">+</button>
-  <span *ngFor="let sel of selectedHorizontal" class="selectedItem">{{sel}} <button type="button" (click)="deleteHorizontal(sel)">-</button></span>
+  <select (change)="changeAgg($event.target.value)" #agg>
+    <option value="">
+    <!--option *ngFor="let agg of aggFuncs" value="{{agg}}">{{agg}}</option-->
+  </select>
 </div>

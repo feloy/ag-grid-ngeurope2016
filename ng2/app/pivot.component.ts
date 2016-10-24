@@ -24,6 +24,11 @@ export class PivotComponent {
         this.horizontal = h;
         this.createColumnDefs();
     }
+    aggFunc: string;
+    private setAggFunc(agg) {
+        this.aggFunc = agg;
+        this.createColumnDefs();
+    }
 
     private gridOptions: GridOptions;
     private data;
@@ -76,6 +81,7 @@ export class PivotComponent {
             defs = defs.map(col => {
                 if (this.horizontal.indexOf(col.field) > -1) {
                     col['aggFunc'] = 'count';
+                    col['pivotIndex'] = 1;
                 }
                 return col;
             })
@@ -89,4 +95,5 @@ export class PivotComponent {
                 this.data = data;
             });
     }
+
 }

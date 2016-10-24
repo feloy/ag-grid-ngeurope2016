@@ -12,7 +12,9 @@ export class AppComponent {
     selHorizontal: string[] = [];
 
     setSelected(ev) {
+
         this.pivot.setVertical(ev.vertical);
         this.pivot.setHorizontal(ev.horizontal);
+        this.pivot.setAggFunc(ev.aggFunc);
     }
 }
