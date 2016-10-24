@@ -1,4 +1,4 @@
-<div style="margin: 16px;">
+<div class="selector">
 	<div class="label">Vertical:</div> 
   <select #vertical>
     <option value=""></option>
@@ -7,14 +7,14 @@
   <button type="button" (click)="addSelectedVertical(vertical.value)">+</button>
   <span *ngFor="let sel of selectedVertical" class="selectedItem">{{sel}} <button type="button" (click)="deleteVertical(sel)">-</button></span>
 </div>
-<div style="margin: 16px;">
+<div class="selector">
 	<div class="label">Horizontal:</div> 
-  <select (change)="changeHoriz($event.target.value)" #horizontal>
+  <select (change)="setHorizontal($event.target.value)" #horizontal>
     <option value=""></option>
     <option *ngFor="let col of columns" value="{{col}}">{{col}}</option>
   </select>
   <select (change)="changeAgg($event.target.value)" #agg>
-    <option value="">
-    <!--option *ngFor="let agg of aggFuncs" value="{{agg}}">{{agg}}</option-->
+    <option value="">(count/value)</option>
+    <option *ngFor="let agg of aggFuncs" value="{{agg}}">{{agg}}</option>
   </select>
 </div>

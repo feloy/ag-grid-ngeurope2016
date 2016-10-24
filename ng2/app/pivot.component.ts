@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 import { AgRendererComponent } from 'ag-grid-ng2/main';
 import { GridOptions } from 'ag-grid/main';
@@ -12,23 +12,10 @@ import { ElevationService } from './elevation.service';
     selector: 'my-pivot',
     templateUrl: 'app/pivot.component.html'
 })
-export class PivotComponent {
-    vertical: string[];
-    setVertical(v) {
-        this.vertical = v;
-        this.createColumnDefs();
-    }
-
-    horizontal: string[];
-    setHorizontal(h) {
-        this.horizontal = h;
-        this.createColumnDefs();
-    }
-    aggFunc: string;
-    private setAggFunc(agg) {
-        this.aggFunc = agg;
-        this.createColumnDefs();
-    }
+export class PivotComponent implements OnInit, OnChanges {
+    @Input() vertical: string[];
+    @Input() horizontal: string;
+    @Input() aggFunc: string;
 
     private gridOptions: GridOptions;
     private data;
@@ -52,7 +39,14 @@ export class PivotComponent {
         this.createRowData();
     }
 
+    ngOnChanges(changes: SimpleChanges) {
+        if ('vertical' in changes || 'horizontal' in changes || 'aggFunc' in changes) {
+            this.createColumnDefs();
+        }
+    }
+
     private createColumnDefs() {
+        this.columnDefs = [];
         let defs = [
             { headerName: "IncidntNum", field: "IncidntNum" },
             { headerName: "Category", field: "Category" },
@@ -75,25 +69,25 @@ export class PivotComponent {
                     col['rowGroupIndex'] = groupIndex++;
                 }
                 return col;
-            })
+            });
         }
         if (this.horizontal) {
             defs = defs.map(col => {
-                if (this.horizontal.indexOf(col.field) > -1) {
-                    col['aggFunc'] = 'count';
-                    col['pivotIndex'] = 1;
+                if (this.horizontal == col.field) {
+                    col['aggFunc'] = this.aggFunc || 'count';
+                    if (!this.aggFunc) {
+                        col['pivotIndex'] = 1;
+                    }
                 }
                 return col;
-            })
+            });
         }
         this.columnDefs = defs;
     }
 
     private createRowData() {
         this.elevationService.getElevationData()
-            .subscribe(data => {
-                this.data = data;
-            });
+            .subscribe(data => this.data = data);
     }
 
 }

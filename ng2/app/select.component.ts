@@ -10,9 +10,9 @@ export class SelectComponent implements OnInit {
 
   public columns: string[];
   public aggFuncs: string[];
-  public selectedVertical = [];
-  public selectedHorizontal = [];
-  public aggFunc: string = '';
+  public selectedVertical: string[] = [];
+  public selectedHorizontal: string = null;
+  public aggFunc: string = null;
 
   ngOnInit() {
     this.columns = [
@@ -38,28 +38,14 @@ export class SelectComponent implements OnInit {
     }
     this.update();
   }
-/*
-  addSelectedHorizontal(col) {
-    if (this.selectedHorizontal.indexOf(col) == -1) {
-      this.selectedHorizontal.push(col);
-    }
-    this.update();
-  }
-*/
 
   deleteVertical(col) {
     this.selectedVertical = this.selectedVertical.filter(c => c !== col);
     this.update();
   }
-/*
-  deleteHorizontal(col) {
-    this.selectedHorizontal = this.selectedHorizontal.filter(c => c !== col);
-    this.update();
-  }
-*/
 
-  changeHoriz(ev) {
-    this.selectedHorizontal = [ ev ];
+  setHorizontal(ev) {
+    this.selectedHorizontal = ev;
     this.update();
   }
 
@@ -70,7 +56,7 @@ export class SelectComponent implements OnInit {
 
   private update() {
     this.values.next({
-      vertical: this.selectedVertical,
+      vertical: this.selectedVertical.slice(0),
       horizontal: this.selectedHorizontal,
       aggFunc: this.aggFunc
     })

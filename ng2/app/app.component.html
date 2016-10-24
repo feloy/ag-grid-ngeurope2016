@@ -1,4 +1,6 @@
 <ag-elevation></ag-elevation>
-<my-select (values)="setSelected($event)"></my-select>
-<my-pivot #pivot>
-</my-pivot>
+<my-select (values)="selected = $event"></my-select>
+<my-pivot 
+  [vertical]="selected.vertical" 
+  [horizontal]="selected.horizontal"
+  [aggFunc]="selected.aggFunc"></my-pivot>
