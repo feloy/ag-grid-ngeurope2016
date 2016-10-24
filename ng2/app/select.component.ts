@@ -2,7 +2,8 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'my-select',
-  templateUrl: 'app/select.component.html'
+  templateUrl: 'app/select.component.html',
+  styleUrls: [ 'app/select.component.css' ]
 })
 export class SelectComponent implements OnInit {
   @Output() values = new EventEmitter();
