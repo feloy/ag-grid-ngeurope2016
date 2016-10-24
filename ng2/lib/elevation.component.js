@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require("@angular/common");
 var main_1 = require('ag-grid-enterprise/main');
 var elevation_service_1 = require('./elevation.service');
 // only import this if you are using the ag-Grid-Enterprise
@@ -35,37 +34,48 @@ var ElevationComponent = (function () {
     function ElevationComponent(elevationService) {
         this.elevationService = elevationService;
         main_1.LicenseManager.setLicenseKey("Ag-Grid_ag-Grid_Devs_21_November_2016__MTQ3OTY4NjQwMDAwMA==e1c9c3094696b86e3e1e067cd8cbe3e2");
-        this.gridOptions = {};
-        this.gridOptions.rowData = this.createRowData();
+        this.gridOptions = {
+            enableSorting: true,
+            sortingOrder: ['desc', 'asc', null]
+        };
         this.gridOptions.columnDefs = this.createColumnDefs();
     }
     ElevationComponent.prototype.onGridReady = function (event) {
         this.gridOptions.api.sizeColumnsToFit();
     };
-    //ngOnInit() {
-    //    this.elevationService.getElevationData().subscribe(data => console.log(data))
-    //}
+    ElevationComponent.prototype.ngOnInit = function () {
+        this.createRowData();
+    };
     ElevationComponent.prototype.createColumnDefs = function () {
         return [
-            { headerName: "Column 1", field: "col1" },
+            { headerName: "IncidntNum", field: "IncidntNum" },
             {
-                headerName: "Column 2",
-                field: "col2",
-                cellRendererFramework: {
-                    component: CellRendererComponent,
-                    moduleImports: [common_1.CommonModule] // because we're using ngStyle in our component
-                },
-                cellRendererParams: {
-                    style: { 'color': 'orangered' }
-                }
-            }
+                headerName: "Date", children: [
+                    { headerName: "DayOfWeek", field: "DayOfWeek" },
+                    { headerName: "Date", field: "Date" },
+                    { headerName: "Time", field: "Time" },
+                ]
+            },
+            {
+                headerName: "Location", children: [
+                    { headerName: "Location", field: "Location" },
+                    { headerName: "X", field: "X" },
+                    { headerName: "Y", field: "Y" },
+                    { headerName: "Elevation", field: "Elevation" }
+                ]
+            },
+            { headerName: "Category", field: "Category" },
+            { headerName: "Descript", field: "Descript" },
+            { headerName: "PdDistrict", field: "PdDistrict" },
+            { headerName: "Resolution", field: "Resolution" },
         ];
     };
     ElevationComponent.prototype.createRowData = function () {
-        return [
-            { col1: "Row 1, Column 1", col2: "Row 1, Column 2" },
-            { col1: "Row 2, Column 1", col2: "Row 2, Column 2" }
-        ];
+        var _this = this;
+        this.elevationService.getElevationData()
+            .subscribe(function (data) {
+            _this.data = data;
+        });
     };
     ElevationComponent = __decorate([
         core_1.Component({

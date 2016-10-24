@@ -1,0 +1,18 @@
+<div>
+	Vertical: 
+  <select #vertical>
+    <option value=""></option>
+    <option *ngFor="let col of columns" value="{{col}}">{{col}}</option>
+  </select>
+  <button type="button" (click)="addSelectedVertical(vertical.value)">+</button>
+  <span *ngFor="let sel of selectedVertical" class="selectedItem">{{sel}} <button type="button" (click)="deleteVertical(sel)">-</button></span>
+</div>
+<div>
+	Horizontal: 
+  <select #horizontal>
+    <option value=""></option>
+    <option *ngFor="let col of columns" value="{{col}}">{{col}}</option>
+  </select>
+  <button type="button" (click)="addSelectedHorizontal(horizontal.value)">+</button>
+  <span *ngFor="let sel of selectedHorizontal" class="selectedItem">{{sel}} <button type="button" (click)="deleteHorizontal(sel)">-</button></span>
+</div>

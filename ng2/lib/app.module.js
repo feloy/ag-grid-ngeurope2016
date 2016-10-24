@@ -14,6 +14,8 @@ var http_1 = require('@angular/http');
 var main_1 = require('ag-grid-ng2/main');
 var app_component_1 = require("./app.component");
 var elevation_component_1 = require("./elevation.component");
+var pivot_component_1 = require("./pivot.component");
+var select_component_1 = require("./select.component");
 var elevation_service_1 = require("./elevation.service");
 var AppModule = (function () {
     function AppModule() {
@@ -27,7 +29,9 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                elevation_component_1.ElevationComponent
+                elevation_component_1.ElevationComponent,
+                pivot_component_1.PivotComponent,
+                select_component_1.SelectComponent
             ],
             providers: [
                 elevation_service_1.ElevationService

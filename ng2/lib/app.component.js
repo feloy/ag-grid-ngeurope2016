@@ -11,7 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
+        this.selVertical = [];
+        this.selHorizontal = [];
     }
+    AppComponent.prototype.setSelected = function (ev) {
+        /*        if (ev) {
+                    this.selVertical = ev.vertical.splice(0);
+                    this.selHorizontal = ev.horizontal.splice(0);
+                }*/
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',

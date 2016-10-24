@@ -1,0 +1,72 @@
+[
+  {
+    "IncidntNum": 121047551,
+    "Category": "RECOVERED VEHICLE",
+    "Descript": "VEHICLE, RECOVERED, AUTO",
+    "DayOfWeek": "Saturday",
+    "Date": "01/05/2013",
+    "Time": "12:18",
+    "PdDistrict": "BAYVIEW",
+    "Resolution": "ARREST, BOOKED",
+    "Location": "900 Block of CONNECTICUT ST",
+    "X": -122.397779772126,
+    "Y": 37.753969756096,
+    "Elevation": 60.51613998413086
+  },
+  {
+    "IncidntNum": 90818299,
+    "Category": "WARRANTS",
+    "Descript": "WARRANT ARREST",
+    "DayOfWeek": "Wednesday",
+    "Date": "02/20/2013",
+    "Time": "16:00",
+    "PdDistrict": "SOUTHERN",
+    "Resolution": "ARREST, BOOKED",
+    "Location": "800 Block of BRYANT ST",
+    "X": -122.403675173997,
+    "Y": 37.7751775060199,
+    "Elevation": 4.403205394744873
+  },
+  {
+    "IncidntNum": 100086312,
+    "Category": "FORGERY/COUNTERFEITING",
+    "Descript": "MONEY, CHANGING FACE AMOUNT",
+    "DayOfWeek": "Monday",
+    "Date": "02/25/2013",
+    "Time": "10:30",
+    "PdDistrict": "SOUTHERN",
+    "Resolution": "ARREST, BOOKED",
+    "Location": "800 Block of BRYANT ST",
+    "X": -122.403675173997,
+    "Y": 37.7751775060199,
+    "Elevation": 4.403205394744873
+  },
+  {
+    "IncidntNum": 110088706,
+    "Category": "OTHER OFFENSES",
+    "Descript": "DRIVERS LICENSE, SUSPENDED OR REVOKED",
+    "DayOfWeek": "Monday",
+    "Date": "04/15/2013",
+    "Time": "11:53",
+    "PdDistrict": "SOUTHERN",
+    "Resolution": "ARREST, BOOKED",
+    "Location": "800 Block of BRYANT ST",
+    "X": -122.403742962696,
+    "Y": 37.7752316978114,
+    "Elevation": 4.25010347366333
+  },
+  {
+    "IncidntNum": 110226508,
+    "Category": "VEHICLE THEFT",
+    "Descript": "STOLEN TRUCK",
+    "DayOfWeek": "Friday",
+    "Date": "02/08/2013",
+    "Time": "16:00",
+    "PdDistrict": "CENTRAL",
+    "Resolution": "NONE",
+    "Location": "1100 Block of CALIFORNIA ST",
+    "X": -122.412481185709,
+    "Y": 37.7915920407042,
+    "Elevation": 87.62020111083984
+  }
+]

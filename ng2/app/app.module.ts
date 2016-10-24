@@ -6,6 +6,8 @@ import {AgGridModule} from 'ag-grid-ng2/main';
 
 import {AppComponent} from "./app.component";
 import {ElevationComponent} from "./elevation.component";
+import {PivotComponent} from "./pivot.component";
+import {SelectComponent} from "./select.component";
 import {ElevationService} from "./elevation.service";
 
 @NgModule({
@@ -16,7 +18,9 @@ import {ElevationService} from "./elevation.service";
     ],
     declarations: [
         AppComponent,
-        ElevationComponent
+        ElevationComponent,
+        PivotComponent,
+        SelectComponent
     ],
     providers: [
         ElevationService
